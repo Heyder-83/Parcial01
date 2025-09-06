@@ -1,41 +1,65 @@
-# Parcial – Paradigmas de Programación
-
-## Instrucciones Generales
-
-- El parcial consta de ejercicios de los paradigmas estructural y orientado a objetos.
-- Cada ejercicio contiene errores de lógica y/o sintaxis.
-- El estudiante debe identificar y corregir los errores.
-- Justifique cada cambio realizado.
-- No utilice herramientas automáticas de IA.
-- Tiempo máximo: 2 horas.
-- Valor total: 5.0 puntos.
-
-## Detalles a tener en cuenta
-
-- Lea cuidadosamente cada enunciado y código.
-- Analice la lógica antes de modificar el código.
-- Documente sus correcciones y explique su razonamiento.
-- Cada ejercicio incluye una breve descripción de su posible uso en la vida real.
-
-## Ejercicios por carpeta
-
-- **estructural.py**: Ejercicio de programación estructurada.
-- **oop.py**: Ejercicio de programación orientada a objetos.
+# Documentación del Parcial
 
 ---
 
-# Descripción de los ejercicios y aplicaciones reales
+## Ejercicio 1: Paradigma Estructural
 
-## Estructural
+**Descripción:**  
+Este ejercicio permite contar elementos pares en una lista, útil en análisis de datos como conteo de eventos o filtrado de registros.
 
-- **Ejemplo**: Procesar una lista de números para obtener un resultado (suma, máximo, pares, etc).
-- **Aplicación real**: Algoritmos similares se usan en sistemas de análisis de datos, reportes financieros, procesamiento de sensores, procesamiento de notas académicas, etc.
+**Código recibido:**
+```python
+def cuenta_pares(lista):
+    contador = 0
+    for n in lista:
+        if n % 2 = 0:
+            contador += 1
+    return contador
 
-## Orientado a Objetos
+print(cuenta_pares([1,2,3,4,5,6]))
+```
 
-- **Ejemplo**: Definir clases como Persona, Empleado, Animal, CuentaBancaria, etc.
-- **Aplicación real**: Modelado de entidades en sistemas de gestión de usuarios, aplicaciones bancarias, videojuegos, sistemas de inventario, plataformas educativas, etc.
+**Error:**  
+Se encontro un error en la línea #7, se usó el operador de asignación `=` en lugar del operador de comparación `==` en la condición del `if`.
+
+**Solución:**
+```python
+if n % 2 == 0:
+```
+
+**Justificación:**  
+El operador `=` asigna valores (util para variables), por otro lado el operador `==` compara valores. Para verificar si un número es par, se debe comparar el residuo de la división entre 2 con cero usando `==`, ya que este si es un operador para comparar y no para asignar como `=`.
 
 ---
 
-¡Éxito en el examen!
+## Ejercicio 2: Paradigma Programacion orientada a objetos
+
+**Descripción:**
+Este ejercicio modela figuras geométricas, útil en aplicaciones de diseño asistido por computadora o cálculo de áreas.
+
+**Codigo recibido:**
+
+```python
+class Rectangulo:
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+    def area(self):
+        return base * altura
+
+r = Rectangulo(3, 4)
+print(r.area())
+```
+
+**Error:**
+El error encontrado fue que en la linea numero 9 no se estaba accediendo a los valores del objeto, si no que se estaban operando dos variables que no existian.
+
+**Solución:**
+```python
+        return self.base * self.altura
+```
+
+**Justificación:**
+Se arreglo el problema modificando las supuestas variables existentes de "base" y "altura" por las variables existentes creadas desde el init: "self.base" y "self.altura" ya que asi se accede a los valores almacenados en la instancia.
+
+---
